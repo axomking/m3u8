@@ -1,0 +1,18 @@
+<?php
+if(isset($_POST['submit'])) {
+    $oldFileName = $_POST['oldFileName'];
+    $newFileName = $_POST['newFileName'];
+    
+    if(rename($oldFileName, $newFileName)) {
+        echo "File renamed successfully.";
+    } else {
+        echo "Error renaming file.";
+    }
+}
+?>
+
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+    Old File URL: <input type="text" name="oldFileName"><br>
+    New File Name: <input type="text" name="newFileName"><br>
+    <input type="submit" name="submit" value="Rename">
+</form>
