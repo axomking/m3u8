@@ -1,18 +1,14 @@
-<?php
-if(isset($_POST['submit'])) {
-    $oldFileName = $_POST['oldFileName'];
-    $newFileName = $_POST['newFileName'];
-    
-    if(rename($oldFileName, $newFileName)) {
-        echo "File renamed successfully.";
-    } else {
-        echo "Error renaming file.";
-    }
-}
-?>
-
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-    Old File URL: <input type="text" name="oldFileName"><br>
-    New File Name: <input type="text" name="newFileName"><br>
-    <input type="submit" name="submit" value="Rename">
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>M3U8 Downloader</title>
+</head>
+<body>
+    <h2>M3U8 Downloader</h2>
+    <form method="post" action="download.php">
+        <label for="m3u8_url">M3U8 URL:</label><br>
+        <input type="text" id="m3u8_url" name="m3u8_url"><br><br>
+        <button type="submit">Download</button>
+    </form>
+</body>
+</html>
